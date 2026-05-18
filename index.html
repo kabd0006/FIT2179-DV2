@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Victoria's Energy Transition</title>
+  
+  <link rel="stylesheet" href="./styles.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+
+  <header>
+    <h1>Victoria's Greenfield Grid</h1>
+    <h2>Leading the Charge in Australia’s Shift to Renewable Energy</h2>
+  </header>
+
+  <main class="grid-container">
+
+    <section class="chart-card">
+      <div class="chart-title">1. National Benchmark: Renewable Energy Penetration</div>
+      <p>Before deep-diving into Victoria's grid, this baseline benchmark maps out the electricity landscape across Australian states, highlighting the uneven progress of the transition.</p>
+      <div id="vis-state-bars" class="vis-container"></div>
+    </section>
+
+
+    <section class="chart-card">
+      <div class="chart-title">2. Spatial Distribution: Australia's State Grid Map</div>
+      <p>This geographic mapping chart visualises the localized density and proportional share of clean energy generation profiles nationwide.</p>
+      <div id="vis-national-map" class="vis-container"></div>
+    </section>
+
+
+    <section class="chart-card">
+      <div class="chart-title">3. The Decline of Brown Coal Assets in Victoria</div>
+      <p>Victoria's historical baseload relied completely on brown coal generation from the Latrobe Valley. This timeline highlights the structural contraction of fossil fuel assets vs. emerging wind profiles.</p>
+      <div id="vis-vic-timeline" class="vis-container"></div>
+    </section>
+
+    <section class="chart-card">
+      <div class="chart-title">4. Current Portfolio: Victoria's Generation Mix</div>
+      <p>This donut visualization extracts the latest annual snapshot, showcasing the remaining reliance on brown coal baseload against the combined footprint of wind and solar assets.</p>
+      <div id="vis-vic-donut" class="vis-container"></div>
+    </section>
+
+
+    </main>
+
+  <footer>
+    <p><strong>Metadata & Source Acknowledgments:</strong></p>
+    <ul>
+      <li>Generation and fuel supply statistics sourced from the Australian Government Department of Climate Change, Energy, the Environment and Water: <a href="https://www.energy.gov.au/publications/australian-energy-statistics-table-o-electricity-generation-fuel-type-2023-24-and-2024" target="_blank" rel="noopener">AES 2025 Table O</a>.</li>
+      <li>Power plant registry data compiled from the Australian Clean Energy Regulator: <a href="https://cer.gov.au/markets/reports-and-data/large-scale-renewable-energy-data/historical-large-scale-renewable-energy-supply-data" target="_blank" rel="noopener">Historical LRET Dataset</a>.</li>
+    </ul>
+    <p>Student Name: Abdul Kabeer | Student ID: 36180963 | FIT2179 DV2</p>
+  </footer>
+
+  <script>
+    
+    vegaEmbed('#vis-state-bars', 'state_bars.json', {"actions": false}).catch(console.error);
+    vegaEmbed('#vis-vic-timeline', 'vic_timeline.json', {"actions": false}).catch(console.error);
+    vegaEmbed('#vis-national-map', 'national_map.json', {"actions": false}).catch(console.error);
+    vegaEmbed('#vis-vic-donut', 'vic_mix_donut.json', {"actions": false}).catch(console.error);
+  </script>
+
+</body>
+</html>

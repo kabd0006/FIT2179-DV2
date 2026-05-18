@@ -1,0 +1,73 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 400,
+  "height": 300,
+  "title": {
+    "text": "Victoria's Electricity Generation Profile (2023-24)",
+    "fontSize": 14,
+    "anchor": "start",
+    "color": "#004d4d",
+    "subtitle": "Percentage breakdown of physical electricity output by primary fuel source"
+  },
+  "data": {
+    "url": "data/vic_energy_timeline.csv"
+  },
+  "transform": [
+    {
+      "filter": "datum.Year === '2023-24'"
+    },
+    {
+      "filter": "datum.Generation_GWh > 0"
+    }
+  ],
+  "mark": {
+    "type": "arc",
+    "innerRadius": 70,
+    "stroke": "#ffffff",
+    "strokeWidth": 1.5
+  },
+  "encoding": {
+    "theta": {
+      "field": "Generation_GWh",
+      "type": "quantitative"
+    },
+    "color": {
+      "field": "Fuel_Type",
+      "type": "nominal",
+      "title": "Fuel Source",
+      "scale": {
+        "domain": [
+          "Brown coal",
+          "Natural gas",
+          "Oil products",
+          "Wind",
+          "Hydro",
+          "Large-scale solar PV",
+          "Small-scale solar PV"
+        ],
+        "range": [
+          "#8b5a2b",
+          "#e69f00",
+          "#999999",
+          "#56b4e9",
+          "#0072b2",
+          "#009e73",
+          "#f0e442"
+        ]
+      },
+      "legend": {
+        "orient": "right",
+        "titleFontSize": 11,
+        "labelFontSize": 10
+      }
+    },
+    "tooltip": [
+      {"field": "Fuel_Type", "type": "nominal", "title": "Fuel Type"},
+      {"field": "Category", "type": "nominal", "title": "Sector"},
+      {"field": "Generation_GWh", "type": "quantitative", "title": "Output (GWh)", "format": ",.1f"}
+    ]
+  },
+  "config": {
+    "view": {"stroke": null}
+  }
+}

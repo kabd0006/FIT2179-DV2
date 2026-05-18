@@ -1,0 +1,61 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 350,
+  "title": {
+    "text": "Australia State-by-State Renewable Energy Penetration",
+    "fontSize": 14,
+    "anchor": "start",
+    "color": "#004d4d",
+    "subtitle": "Macro-level comparative distribution of clean power outputs (2024)"
+  },
+  "projection": {
+    "type": "mercator"
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/creative-monash/fit2179-datasets/main/australia.geojson",
+        "format": {"type": "json"}
+      },
+      "transform": [
+        {
+          "lookup": "properties.STATE_NAME",
+          "from": {
+            "data": {
+              "url": "data/state_summary_2024.csv"
+            },
+            "key": "State",
+            "fields": ["Renewable_Share_Percent"]
+          }
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "stroke": "#ffffff",
+        "strokeWidth": 1.2
+      },
+      "encoding": {
+        "color": {
+          "field": "Renewable_Share_Percent",
+          "type": "quantitative",
+          "scale": {
+            "type": "linear",
+            "scheme": "tealblues"
+          },
+          "legend": {
+            "title": "Renewable Share (%)",
+            "orient": "bottom-left"
+          }
+        },
+        "tooltip": [
+          {"field": "properties.STATE_NAME", "type": "nominal", "title": "State"},
+          {"field": "Renewable_Share_Percent", "type": "quantitative", "title": "Renewable Share (%)", "format": ".1f"}
+        ]
+      }
+    }
+  ],
+  "config": {
+    "view": {"stroke": null}
+  }
+}

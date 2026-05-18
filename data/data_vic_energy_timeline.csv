@@ -1,0 +1,145 @@
+Year,Fuel_Type,Category,Generation_GWh
+2008-09,Brown coal,Non-renewable,52094.0
+2009-10,Brown coal,Non-renewable,51541.7
+2010-11,Brown coal,Non-renewable,51066.5
+2011-12,Brown coal,Non-renewable,52059.7
+2012-13,Brown coal,Non-renewable,45317.6
+2013-14,Brown coal,Non-renewable,43977.7
+2014-15,Brown coal,Non-renewable,48336.8
+2015-16,Brown coal,Non-renewable,46234.132
+2016-17,Brown coal,Non-renewable,43594.098
+2017-18,Brown coal,Non-renewable,36021.427
+2018-19,Brown coal,Non-renewable,34495.245
+2019-20,Brown coal,Non-renewable,33661.55
+2020-21,Brown coal,Non-renewable,34060.028
+2021-22,Brown coal,Non-renewable,32515.636
+2022-23,Brown coal,Non-renewable,31459.126
+2023-24,Brown coal,Non-renewable,32137.08
+2008-09,Natural gas,Non-renewable,1451.9
+2009-10,Natural gas,Non-renewable,1697.9
+2010-11,Natural gas,Non-renewable,1289.8
+2011-12,Natural gas,Non-renewable,1142.5
+2012-13,Natural gas,Non-renewable,3247.7
+2013-14,Natural gas,Non-renewable,3239.3
+2014-15,Natural gas,Non-renewable,2390.927
+2015-16,Natural gas,Non-renewable,1892.244
+2016-17,Natural gas,Non-renewable,2658.739
+2017-18,Natural gas,Non-renewable,3829.887
+2018-19,Natural gas,Non-renewable,3334.031
+2019-20,Natural gas,Non-renewable,3117.04
+2020-21,Natural gas,Non-renewable,1956.916
+2021-22,Natural gas,Non-renewable,2224.829
+2022-23,Natural gas,Non-renewable,1693.466
+2023-24,Natural gas,Non-renewable,1486.717
+2008-09,Oil products,Non-renewable,20.4
+2009-10,Oil products,Non-renewable,1.1
+2010-11,Oil products,Non-renewable,38.2
+2011-12,Oil products,Non-renewable,4.0
+2012-13,Oil products,Non-renewable,10.7
+2013-14,Oil products,Non-renewable,145.8
+2014-15,Oil products,Non-renewable,155.95
+2015-16,Oil products,Non-renewable,70.573
+2016-17,Oil products,Non-renewable,109.281
+2017-18,Oil products,Non-renewable,178.023
+2018-19,Oil products,Non-renewable,204.659
+2019-20,Oil products,Non-renewable,201.974
+2020-21,Oil products,Non-renewable,179.068
+2021-22,Oil products,Non-renewable,219.429
+2022-23,Oil products,Non-renewable,259.086
+2023-24,Oil products,Non-renewable,205.994
+2008-09,"Bagasse,",Renewable,0.0
+2009-10,"Bagasse,",Renewable,0.0
+2010-11,"Bagasse,",Renewable,0.0
+2011-12,"Bagasse,",Renewable,187.106
+2012-13,"Bagasse,",Renewable,171.14
+2013-14,"Bagasse,",Renewable,188.787
+2014-15,"Bagasse,",Renewable,251.976
+2015-16,"Bagasse,",Renewable,235.392
+2016-17,"Bagasse,",Renewable,263.355
+2017-18,"Bagasse,",Renewable,241.012
+2018-19,"Bagasse,",Renewable,235.469
+2019-20,"Bagasse,",Renewable,243.797
+2020-21,"Bagasse,",Renewable,229.67
+2021-22,"Bagasse,",Renewable,258.839
+2022-23,"Bagasse,",Renewable,192.908
+2023-24,"Bagasse,",Renewable,139.835
+2008-09,Biogas,Renewable,292.0
+2009-10,Biogas,Renewable,303.4
+2010-11,Biogas,Renewable,339.6
+2011-12,Biogas,Renewable,672.241
+2012-13,Biogas,Renewable,673.96
+2013-14,Biogas,Renewable,698.103
+2014-15,Biogas,Renewable,420.258
+2015-16,Biogas,Renewable,512.312
+2016-17,Biogas,Renewable,431.106
+2017-18,Biogas,Renewable,460.192
+2018-19,Biogas,Renewable,497.644
+2019-20,Biogas,Renewable,535.728
+2020-21,Biogas,Renewable,499.303
+2021-22,Biogas,Renewable,497.999
+2022-23,Biogas,Renewable,484.544
+2023-24,Biogas,Renewable,470.026
+2008-09,Wind,Renewable,573.0
+2009-10,Wind,Renewable,1406.0
+2010-11,Wind,Renewable,1434.4
+2011-12,Wind,Renewable,1416.2
+2012-13,Wind,Renewable,2005.1
+2013-14,Wind,Renewable,2771.9
+2014-15,Wind,Renewable,3067.791
+2015-16,Wind,Renewable,3341.83
+2016-17,Wind,Renewable,3560.851
+2017-18,Wind,Renewable,4303.851
+2018-19,Wind,Renewable,4863.699
+2019-20,Wind,Renewable,5596.248
+2020-21,Wind,Renewable,7080.623
+2021-22,Wind,Renewable,9563.573
+2022-23,Wind,Renewable,11065.542
+2023-24,Wind,Renewable,10651.904
+2008-09,Hydro,Renewable,2234.523
+2009-10,Hydro,Renewable,1974.974
+2010-11,Hydro,Renewable,3910.622
+2011-12,Hydro,Renewable,2393.275
+2012-13,Hydro,Renewable,3293.811
+2013-14,Hydro,Renewable,2594.991
+2014-15,Hydro,Renewable,2513.612
+2015-16,Hydro,Renewable,3228.452
+2016-17,Hydro,Renewable,3673.259
+2017-18,Hydro,Renewable,2803.107
+2018-19,Hydro,Renewable,2702.802
+2019-20,Hydro,Renewable,2310.836
+2020-21,Hydro,Renewable,2851.962
+2021-22,Hydro,Renewable,2787.873
+2022-23,Hydro,Renewable,3237.202
+2023-24,Hydro,Renewable,2798.338
+2008-09,Large-scale solar PV,Renewable,0.0
+2009-10,Large-scale solar PV,Renewable,0.0
+2010-11,Large-scale solar PV,Renewable,0.0
+2011-12,Large-scale solar PV,Renewable,0.0
+2012-13,Large-scale solar PV,Renewable,0.0
+2013-14,Large-scale solar PV,Renewable,4.41
+2014-15,Large-scale solar PV,Renewable,9.066
+2015-16,Large-scale solar PV,Renewable,11.473
+2016-17,Large-scale solar PV,Renewable,13.802
+2017-18,Large-scale solar PV,Renewable,39.442
+2018-19,Large-scale solar PV,Renewable,462.469
+2019-20,Large-scale solar PV,Renewable,872.458
+2020-21,Large-scale solar PV,Renewable,1455.53
+2021-22,Large-scale solar PV,Renewable,1897.432
+2022-23,Large-scale solar PV,Renewable,1970.487
+2023-24,Large-scale solar PV,Renewable,2011.43
+2008-09,Small-scale solar PV,Renewable,24.1
+2009-10,Small-scale solar PV,Renewable,66.2
+2010-11,Small-scale solar PV,Renewable,205.5
+2011-12,Small-scale solar PV,Renewable,378.7
+2012-13,Small-scale solar PV,Renewable,580.1
+2013-14,Small-scale solar PV,Renewable,674.162
+2014-15,Small-scale solar PV,Renewable,874.831
+2015-16,Small-scale solar PV,Renewable,1056.128
+2016-17,Small-scale solar PV,Renewable,1231.72
+2017-18,Small-scale solar PV,Renewable,1481.194
+2018-19,Small-scale solar PV,Renewable,1899.952
+2019-20,Small-scale solar PV,Renewable,2457.27
+2020-21,Small-scale solar PV,Renewable,3176.379
+2021-22,Small-scale solar PV,Renewable,3941.958
+2022-23,Small-scale solar PV,Renewable,4777.87
+2023-24,Small-scale solar PV,Renewable,5549.976

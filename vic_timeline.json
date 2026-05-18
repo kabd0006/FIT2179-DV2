@@ -1,0 +1,55 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 550,
+  "height": 300,
+  "title": {
+    "text": "The Structural Shift in Victoria's Electricity Generation",
+    "fontSize": 14,
+    "anchor": "start",
+    "color": "#004d4d",
+    "subtitle": "Annual physical electricity generation profile by primary fuel stream (GWh)"
+  },
+  "data": {
+    "url": "data/vic_energy_timeline.csv"
+  },
+  "mark": {
+    "type": "area",
+    "opacity": 0.85
+  },
+  "encoding": {
+    "x": {
+      "field": "Year",
+      "type": "nominal",
+      "axis": {
+        "title": "Financial Year",
+        "labelAngle": -45,
+        "labelPadding": 5,
+        "labelOverlap": true
+      }
+    },
+    "y": {
+      "aggregate": "sum",
+      "field": "Generation_GWh",
+      "type": "quantitative",
+      "title": "Electricity Generated (GWh)",
+      "axis": {"grid": true, "gridColor": "#f1f3f5"}
+    },
+    "color": {
+      "field": "Fuel_Type",
+      "type": "nominal",
+      "scale": {
+        "domain": ["Brown coal", "Natural gas", "Oil products", "Wind", "Hydro", "Large-scale solar PV", "Small-scale solar PV"],
+        "range": ["#8b5a2b", "#e69f00", "#999999", "#56b4e9", "#0072b2", "#009e73", "#f0e442"]
+      },
+      "title": "Generation Source"
+    },
+    "tooltip": [
+      {"field": "Year", "type": "nominal"},
+      {"field": "Fuel_Type", "type": "nominal", "title": "Source"},
+      {"field": "Generation_GWh", "type": "quantitative", "title": "Output (GWh)", "format": ",.0f"}
+    ]
+  },
+  "config": {
+    "view": {"stroke": null}
+  }
+}
