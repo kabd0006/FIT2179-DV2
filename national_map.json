@@ -1,57 +1,127 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": 350,
+  "height": 360,
+  "padding": 0,
   "title": {
-    "text": "Australia State-by-State Renewable Energy Penetration",
+    "text": "Geographic Energy Hub Distribution Across Victoria",
     "fontSize": 14,
     "anchor": "start",
-    "color": "#004d4d",
-    "subtitle": "Macro-level comparative distribution of clean power outputs (2024)"
+    "color": "#0b2c24",
+    "subtitle": "Interactive tracking of local generation asset profiles and output densities by metric selector"
   },
   "projection": {
-    "type": "mercator"
+    "type": "mercator", 
+    "center": [144.96, -37.1], 
+    "scale": 4500
   },
+  "params": [
+    {
+      "name": "metric",
+      "value": "Generation_GWh",
+      "bind": {
+        "input": "select",
+        "options": ["Generation_GWh"],
+        "labels": ["Net Generation Output (GWh)"],
+        "name": "Metric: "
+      }
+    },
+    {
+      "name": "selectedYear",
+      "value": "2023-24",
+      "bind": {
+        "input": "select",
+        "options": ["2008-09", "2013-14", "2018-19", "2023-24"],
+        "labels": ["FY 2008-09", "FY 2013-14", "FY 2018-19", "FY 2023-24"],
+        "name": "Reporting Year: "
+      }
+    }
+  ],
+  "data": {
+    "url": "data/vic_energy_timeline.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "Generation_GWh": "number"
+      }
+    }
+  },
+  "transform": [
+    {"filter": "datum.Generation_GWh != null"},
+    {"filter": "datum.Year == selectedYear"},
+    {
+      "aggregate": [
+        {"op": "sum", "field": "Generation_GWh", "as": "totalGeneration"}
+      ],
+      "groupby": ["Fuel Type"]
+    },
+    {
+      "joinaggregate": [
+        {"op": "mean", "field": "totalGeneration", "as": "globalGeneration"}
+      ]
+    },
+    {"calculate": "isValid(datum.totalGeneration) ? datum.totalGeneration : datum.globalGeneration", "as": "totalGeneration"},
+    {
+      "lookup": "Fuel Type",
+      "from": {
+        "data": {
+          "values": [
+            {"fuel": "Brown coal",           "lat": -38.177, "lon": 146.342, "region": "Latrobe Valley"},
+            {"fuel": "Natural gas",          "lat": -38.553, "lon": 147.121, "region": "Gippsland Basin"},
+            {"fuel": "Wind",                 "lat": -38.036, "lon": 142.441, "region": "Western District"},
+            {"fuel": "Hydro",                "lat": -36.783, "lon": 147.283, "region": "Kiewa Valley"},
+            {"fuel": "Large-scale solar PV", "lat": -36.121, "lon": 145.432, "region": "Goulburn Valley"},
+            {"fuel": "Small-scale solar PV", "lat": -37.814, "lon": 144.963, "region": "Melbourne Metro"}
+          ]
+        },
+        "key": "fuel",
+        "fields": ["lat", "lon", "region"]
+      }
+    }
+  ],
+  "resolve": {"scale": {"color": "independent"}, "legend": {"color": "independent"}},
   "layer": [
     {
       "data": {
-        "url": "https://raw.githubusercontent.com/creative-monash/fit2179-datasets/main/australia.geojson",
-        "format": {"type": "json"}
+        "url": "data/states.min.geojson.txt",
+        "format": {"type": "json", "property": "features"}
       },
-      "transform": [
-        {
-          "lookup": "properties.STATE_NAME",
-          "from": {
-            "data": {
-              "url": "data/state_summary_2024.csv"
-            },
-            "key": "State",
-            "fields": ["Renewable_Share_Percent"]
-          }
-        }
-      ],
-      "mark": {
-        "type": "geoshape",
-        "stroke": "#ffffff",
-        "strokeWidth": 1.2
-      },
+      "mark": {"type": "geoshape", "fill": "#f8f9fa", "stroke": "#cbd5e0", "strokeWidth": 0.8}
+    },
+    {
+      "transform": [{"filter": "metric == 'Generation_GWh'"}],
+      "mark": {"type": "circle", "stroke": "#555", "strokeWidth": 1},
       "encoding": {
-        "color": {
-          "field": "Renewable_Share_Percent",
+        "longitude": {"field": "lon", "type": "quantitative"},
+        "latitude":  {"field": "lat", "type": "quantitative"},
+        "size": {
+          "field": "totalGeneration",
           "type": "quantitative",
+          "title": "Output (GWh)",
+          "scale": {"domain": [100, 60000], "range": [150, 1200]}
+        },
+        "color": {
+          "field": "Fuel Type",
+          "type": "nominal",
+          "title": "Primary Fuel Stream",
           "scale": {
-            "type": "linear",
-            "scheme": "tealblues"
-          },
-          "legend": {
-            "title": "Renewable Share (%)",
-            "orient": "bottom-left"
+            "domain": ["Brown coal", "Natural gas", "Wind", "Hydro", "Large-scale solar PV", "Small-scale solar PV"],
+            "range": ["#744210", "#dd6b20", "#3182ce", "#2b6cb0", "#319795", "#d69e2e"]
           }
         },
         "tooltip": [
-          {"field": "properties.STATE_NAME", "type": "nominal", "title": "State"},
-          {"field": "Renewable_Share_Percent", "type": "quantitative", "title": "Renewable Share (%)", "format": ".1f"}
+          {"field": "Fuel Type", "title": "Energy Asset Group"},
+          {"field": "region", "title": "Primary Operational Hub"},
+          {"field": "totalGeneration", "title": "Total Output (GWh)", "format": ",.0f"}
         ]
+      }
+    },
+    {
+      "mark": {"type": "text", "dy": -24, "fontSize": 11, "fontWeight": "bold", "fill": "#0b2c24", "align": "center", "baseline": "bottom"},
+      "encoding": {
+        "longitude": {"field": "lon", "type": "quantitative"},
+        "latitude":  {"field": "lat", "type": "quantitative"},
+        "text": {"field": "region"}
       }
     }
   ],

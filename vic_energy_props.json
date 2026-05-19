@@ -1,0 +1,47 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 120,
+  "title": {
+    "text": "Market Share Allocation of the Current Mix",
+    "fontSize": 14,
+    "anchor": "start",
+    "color": "#0b2c24",
+    "subtitle": "Relative percentage contribution of every operational asset group across the 2023-24 financial cycle"
+  },
+  "data": {
+    "url": "data/vic_energy_timeline.csv"
+  },
+  "transform": [
+    {
+      "filter": "datum.Year === '2023-24'"
+    }
+  ],
+  "mark": {"type": "bar", "tooltip": true},
+  "encoding": {
+    "x": {
+      "aggregate": "sum",
+      "field": "Generation_GWh",
+      "type": "quantitative",
+      "stack": "normalize",
+      "title": "Percentage of Total Grid Output",
+      "axis": {"format": "%"}
+    },
+    "color": {
+      "field": "Fuel_Type",
+      "type": "nominal",
+      "scale": {
+        "domain": ["Brown coal", "Natural gas", "Oil products", "Wind", "Hydro", "Large-scale solar PV", "Small-scale solar PV"],
+        "range": ["#744210", "#dd6b20", "#718096", "#3182ce", "#2b6cb0", "#319795", "#d69e2e"]
+      },
+      "title": "Energy Resource"
+    },
+    "tooltip": [
+      {"field": "Fuel_Type", "type": "nominal", "title": "Energy Stream"},
+      {"aggregate": "sum", "field": "Generation_GWh", "type": "quantitative", "title": "Output (GWh)", "format": ",.0f"}
+    ]
+  },
+  "config": {
+    "view": {"stroke": null}
+  }
+}

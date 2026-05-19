@@ -1,27 +1,22 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 550,
-  "height": 280,
-  "title": {
-    "text": "National Benchmark: Renewable Energy Penetration by State (2024)",
-    "fontSize": 14,
-    "anchor": "start",
-    "color": "#004d4d",
-    "subtitle": "Percentage of total electricity generated from renewable sources"
-  },
+  "width": "container",
+  "height": 260,
   "data": {
     "url": "data/state_summary_2024.csv"
   },
   "mark": {
     "type": "bar", 
-    "cornerRadiusEnd": 4
+    "cornerRadiusEnd": 5,
+    "height": {"band": 0.65}
   },
   "encoding": {
     "x": {
       "field": "Renewable_Share_Percent",
       "type": "quantitative",
       "title": "Renewable Generation Share (%)",
-      "scale": {"domain": [0, 100]}
+      "scale": {"domain": [0, 100]},
+      "axis": {"grid": true, "gridColor": "#edf2f7", "tickCount": 5}
     },
     "y": {
       "field": "State",
@@ -29,9 +24,10 @@
       "sort": "-x",
       "axis": {
         "title": null,
-        "labelAngle": 0,
-        "labelPadding": 10,
-        "labelFontSize": 11
+        "labelPadding": 12,
+        "labelFontSize": 12,
+        "domain": false,
+        "ticks": false
       }
     },
     "color": {
@@ -39,7 +35,7 @@
         "test": "datum.State === 'Victoria'",
         "value": "#008080"
       },
-      "value": "#ced4da"
+      "value": "#cbd5e0"
     },
     "tooltip": [
       {"field": "State", "type": "nominal"},
@@ -47,7 +43,6 @@
     ]
   },
   "config": {
-    "view": {"stroke": null},
-    "axis": {"grid": true, "gridColor": "#f1f3f5"}
+    "view": {"stroke": null}
   }
 }

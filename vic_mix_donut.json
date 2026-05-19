@@ -1,13 +1,12 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 400,
-  "height": 300,
+  "width": "container",
+  "height": 260,
   "title": {
     "text": "Victoria's Electricity Generation Profile (2023-24)",
     "fontSize": 14,
     "anchor": "start",
-    "color": "#004d4d",
-    "subtitle": "Percentage breakdown of physical electricity output by primary fuel source"
+    "color": "#0b2c24"
   },
   "data": {
     "url": "data/vic_energy_timeline.csv"
@@ -17,54 +16,38 @@
       "filter": "datum.Year === '2023-24'"
     },
     {
-      "filter": "datum.Generation_GWh > 0"
+      "filter": "datum['Generation (GWh)'] > 0"
     }
   ],
   "mark": {
     "type": "arc",
-    "innerRadius": 70,
+    "innerRadius": 65,
+    "outerRadius": 95,
     "stroke": "#ffffff",
-    "strokeWidth": 1.5
+    "strokeWidth": 2
   },
   "encoding": {
     "theta": {
-      "field": "Generation_GWh",
+      "field": "Generation (GWh)",
       "type": "quantitative"
     },
     "color": {
-      "field": "Fuel_Type",
+      "field": "Fuel Type",
       "type": "nominal",
-      "title": "Fuel Source",
+      "title": "Fuel Stream",
       "scale": {
-        "domain": [
-          "Brown coal",
-          "Natural gas",
-          "Oil products",
-          "Wind",
-          "Hydro",
-          "Large-scale solar PV",
-          "Small-scale solar PV"
-        ],
-        "range": [
-          "#8b5a2b",
-          "#e69f00",
-          "#999999",
-          "#56b4e9",
-          "#0072b2",
-          "#009e73",
-          "#f0e442"
-        ]
+        "domain": ["Brown coal", "Natural gas", "Oil products", "Wind", "Hydro", "Large-scale solar PV", "Small-scale solar PV"],
+        "range": ["#744210", "#dd6b20", "#718096", "#3182ce", "#2b6cb0", "#319795", "#d69e2e"]
       },
       "legend": {
         "orient": "right",
-        "titleFontSize": 11,
-        "labelFontSize": 10
+        "offset": 20,
+        "rowPadding": 6
       }
     },
     "tooltip": [
-      {"field": "Fuel_Type", "type": "nominal", "title": "Fuel Type"},
-      {"field": "Category", "type": "nominal", "title": "Sector"},
-      {"field": "Generation_GWh", "type": "quantitative", "title": "Output (GWh)", "format": ",.1f"}
+      {"field": "Fuel Type", "type": "nominal", "title": "Source"},
+      {"field": "Generation (GWh)", "type": "quantitative", "title": "Output (GWh)", "format": ",.0f"}
     ]
   },
   "config": {

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Victoria's Energy Transition</title>
+  <title>Victoria's Energy Transition Portfolio</title>
   
   <link rel="stylesheet" href="./styles.css">
 
@@ -13,57 +13,149 @@
 </head>
 <body>
 
-  <header>
-    <h1>Victoria's Greenfield Grid</h1>
-    <h2>Leading the Charge in Australia’s Shift to Renewable Energy</h2>
+  <header class="dashboard-header">
+    <div class="header-content">
+      <span class="badge">FIT2179 Data Visualisation</span>
+      <h1>Victoria's Clean Energy Transition Profile</h1>
+      <p class="subtitle">An interactive data exploration tracking coal retirement, renewable generation metrics, and regional asset density.</p>
+    </div>
   </header>
 
-  <main class="grid-container">
+  <main class="portfolio-container">
 
-    <section class="chart-card">
-      <div class="chart-title">1. National Benchmark: Renewable Energy Penetration</div>
-      <p>Before deep-diving into Victoria's grid, this baseline benchmark maps out the electricity landscape across Australian states, highlighting the uneven progress of the transition.</p>
-      <div id="vis-state-bars" class="vis-container"></div>
+    <section class="portfolio-section">
+      <div class="narrative-side">
+        <div class="section-number">01</div>
+        <h2 class="section-heading">Mapping the New Power Landscape</h2>
+        <p>The geographic backbone of Victoria's energy grid is undergoing a massive migration. Historically anchored to the heavy fossil-fuel infrastructure concentrated in the east, the state's modern generation capacity is physically pulling outward. Look closely at how the windy coastal breezes of the Western District and the intense solar irradiance of the northern Goulburn Valley have created vibrant regional hubs, changing where our electricity is born.</p>
+        <div class="stat-callout">
+          <span class="stat-number">Regional</span>
+          <span class="stat-label">Decentralised Infrastructure Shifting Outward</span>
+        </div>
+      </div>
+      <div class="chart-side">
+        <div class="chart-card">
+          <div id="vis-national-map" class="chart-container"></div>
+        </div>
+      </div>
     </section>
 
-
-    <section class="chart-card">
-      <div class="chart-title">2. Spatial Distribution: Australia's State Grid Map</div>
-      <p>This geographic mapping chart visualises the localized density and proportional share of clean energy generation profiles nationwide.</p>
-      <div id="vis-national-map" class="vis-container"></div>
+    <section class="portfolio-section">
+      <div class="narrative-side">
+        <div class="section-number">02</div>
+        <h2 class="section-heading">Victoria's Place in the Race</h2>
+        <p>How does Victoria stack up in the national race toward net-zero? While neighboring Tasmania leverages an envious natural gift of high-altitude hydro lakes to run on near-total renewables, Victoria's historical reliance on dense brown coal has made its climb much steeper. Yet, this benchmark highlights that Victoria is no longer an underachiever, successfully overtaking several states to anchor itself firmly in the progressive middle tier.</p>
+        <div class="stat-callout">
+          <span class="stat-number">40.6%</span>
+          <span class="stat-label">Renewable Grid Penetration Share</span>
+        </div>
+      </div>
+      <div class="chart-side">
+        <div class="chart-card">
+          <div id="vis-state-bars" class="chart-container"></div>
+        </div>
+      </div>
     </section>
 
-
-    <section class="chart-card">
-      <div class="chart-title">3. The Decline of Brown Coal Assets in Victoria</div>
-      <p>Victoria's historical baseload relied completely on brown coal generation from the Latrobe Valley. This timeline highlights the structural contraction of fossil fuel assets vs. emerging wind profiles.</p>
-      <div id="vis-vic-timeline" class="vis-container"></div>
+    <section class="portfolio-section reverse">
+      <div class="narrative-side">
+        <div class="section-number">03</div>
+        <h2 class="section-heading">The Long Twilight of Brown Coal</h2>
+        <p>For nearly a century, brown coal was the undisputed titan powering Victorian households and industries, but that era is facing a structural decline. By tracking this timeline, you can see the literal unmaking of a legacy system. Use the drop-down menu below to isolate individual energy tracks and watch the dramatic, steady drop of coal baseloads as aging plants slowly switch off to make way for cleaner alternatives.</p>
+        <div class="stat-callout">
+          <span class="stat-number">-39.7%</span>
+          <span class="stat-label">Reduction in Brown Coal Baseload Since 2008</span>
+        </div>
+      </div>
+      <div class="chart-side">
+        <div class="chart-card">
+          <div id="vis-vic-timeline" class="chart-container"></div>
+        </div>
+      </div>
     </section>
 
-    <section class="chart-card">
-      <div class="chart-title">4. Current Portfolio: Victoria's Generation Mix</div>
-      <p>This donut visualization extracts the latest annual snapshot, showcasing the remaining reliance on brown coal baseload against the combined footprint of wind and solar assets.</p>
-      <div id="vis-vic-donut" class="vis-container"></div>
+    <section class="portfolio-section">
+      <div class="narrative-side">
+        <div class="section-number">04</div>
+        <h2 class="section-heading">The Anatomy of Today's Market Share</h2>
+        <p>Looking at raw generation numbers can mask the true balance of power. By flattening the entire 2023-24 grid output into a single normalized percentage bar, we can see the exact proportion of market space each resource commands. Hover over the segments to see how close renewables are to claiming the majority slice of Victoria's energy profile.</p>
+        <div class="stat-callout">
+          <span class="stat-number">100% Base</span>
+          <span class="stat-label">Normalized Grid Proportion Share</span>
+        </div>
+      </div>
+      <div class="chart-side">
+        <div class="chart-card">
+          <div id="vis-energy-props" class="chart-container"></div>
+        </div>
+      </div>
     </section>
 
+    <section class="portfolio-section reverse">
+      <div class="narrative-side">
+        <div class="section-number">05</div>
+        <h2 class="section-heading">The Divergence of Energy Paths</h2>
+        <p>When you separate the traditional fossil fuel industry from the clean energy transition, the stark divergence between the two paths becomes completely clear. This side-by-side presentation captures a profound changing of the guard. The traditional fossil fuel sectors are steadily sloping downward, while the wind and solar trajectories display a sharp upward trend, highlighting the accelerating momentum of new energy infrastructure.</p>
+        <div class="stat-callout">
+          <span class="stat-number">7 Assets</span>
+          <span class="stat-label">Independent Stream Trajectories Mapped</span>
+        </div>
+      </div>
+      <div class="chart-side">
+        <div class="chart-card">
+          <div id="vis-trellis-sectors" class="chart-container"></div>
+        </div>
+      </div>
+    </section>
 
-    </main>
+    <section class="portfolio-section">
+      <div class="narrative-side">
+        <div class="section-number">06</div>
+        <h2 class="section-heading">The Velocity of Wind and Solar</h2>
+        <p>Intermittent renewables—specifically wind and solar installations—are no longer just auxiliary players on the margins of our electrical grid. This layered stream demonstrates the velocity of their collective growth. Hover over the area track to see how their combined annual output has surged past the long-term historical average (the red target baseline), proving that alternative energy has become a primary driver of Victoria's grid.</p>
+        <div class="stat-callout">
+          <span class="stat-number">Hover Active</span>
+          <span class="stat-label">Interactive Crosshair Node Selection</span>
+        </div>
+      </div>
+      <div class="chart-side">
+        <div class="chart-card">
+          <div id="vis-wind-solar" class="chart-container"></div>
+        </div>
+      </div>
+    </section>
 
-  <footer>
-    <p><strong>Metadata & Source Acknowledgments:</strong></p>
-    <ul>
-      <li>Generation and fuel supply statistics sourced from the Australian Government Department of Climate Change, Energy, the Environment and Water: <a href="https://www.energy.gov.au/publications/australian-energy-statistics-table-o-electricity-generation-fuel-type-2023-24-and-2024" target="_blank" rel="noopener">AES 2025 Table O</a>.</li>
-      <li>Power plant registry data compiled from the Australian Clean Energy Regulator: <a href="https://cer.gov.au/markets/reports-and-data/large-scale-renewable-energy-data/historical-large-scale-renewable-energy-supply-data" target="_blank" rel="noopener">Historical LRET Dataset</a>.</li>
-    </ul>
-    <p>Student Name: Abdul Kabeer | Student ID: 36180963 | FIT2179 DV2</p>
+    <section class="portfolio-section reverse">
+      <div class="narrative-side">
+        <div class="section-number">07</div>
+        <h2 class="section-heading">Visualizing the Structural Migration</h2>
+        <p>This grid shifts focus away from raw timeline curves to reveal the changing density of our power generation. By viewing generation volume as color intensity, you can watch the physical weight of Victoria's energy mix shift right before your eyes. Over the years, the deep, heavy blues that once dominated the traditional coal row slowly fade out, while the wind and solar rows light up with growing intensity, capturing the ongoing transition in a single snapshot.</p>
+        <div class="stat-callout">
+          <span class="stat-number">GWh Inline</span>
+          <span class="stat-label">Text-Stamped Value Layers with Smart Contrast</span>
+        </div>
+      </div>
+      <div class="chart-side">
+        <div class="chart-card">
+          <div id="vis-energy-heatmap" class="chart-container"></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="dashboard-footer">
+    <p>Data Sources: Australian Energy Statistics Table O & Clean Energy Regulator Archive | Abdul Kabeer  36180963</p>
   </footer>
 
   <script>
-    
+    vegaEmbed('#vis-national-map', 'national_map.json', {"actions": false}).catch(console.error);
     vegaEmbed('#vis-state-bars', 'state_bars.json', {"actions": false}).catch(console.error);
     vegaEmbed('#vis-vic-timeline', 'vic_timeline.json', {"actions": false}).catch(console.error);
-    vegaEmbed('#vis-national-map', 'national_map.json', {"actions": false}).catch(console.error);
-    vegaEmbed('#vis-vic-donut', 'vic_mix_donut.json', {"actions": false}).catch(console.error);
+    vegaEmbed('#vis-energy-props', 'vic_energy_props.json', {"actions": false}).catch(console.error);
+    vegaEmbed('#vis-trellis-sectors', 'trellis_sectors.json', {"actions": false}).catch(console.error);
+    vegaEmbed('#vis-wind-solar', 'wind_solar_trends.json', {"actions": false}).catch(console.error);
+    vegaEmbed('#vis-energy-heatmap', 'energy_heatmap.json', {"actions": false}).catch(console.error);
   </script>
 
 </body>

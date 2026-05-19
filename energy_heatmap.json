@@ -1,0 +1,71 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 280,
+  "title": {
+    "text": "Chronological Density Matrix of Energy Generation",
+    "fontSize": 14,
+    "anchor": "start",
+    "color": "#0b2c24",
+    "subtitle": "Year-by-year generation intensity (GWh) shifting from fossil fuels to renewables"
+  },
+  "data": {
+    "url": "data/vic_energy_timeline.csv"
+  },
+  "params": [
+    {
+      "name": "fuelHighlight",
+      "select": { "type": "point", "fields": ["Fuel_Type"] },
+      "bind": "legend"
+    }
+  ],
+  "mark": "rect",
+  "encoding": {
+    "x": {
+      "field": "Year",
+      "type": "nominal",
+      "title": "Financial Year",
+      "axis": {
+        "labelAngle": -45,
+        "labelOverlap": "parity",
+        "domain": false
+      }
+    },
+    "y": {
+      "field": "Fuel_Type",
+      "type": "nominal",
+      "title": "Generation Stream",
+      "axis": {
+        "domain": false,
+        "ticks": false,
+        "labelPadding": 10
+      }
+    },
+    "color": {
+      "field": "Generation_GWh",
+      "type": "quantitative",
+      "title": "Output (GWh)",
+      "scale": {
+        "type": "linear",
+        "scheme": "tealblues"
+      },
+      "legend": {
+        "orient": "right",
+        "gradientThickness": 12,
+        "titleFontWeight": "bold"
+      }
+    },
+    "opacity": {
+      "condition": { "param": "fuelHighlight", "value": 1 },
+      "value": 0.2
+    },
+    "tooltip": [
+      {"field": "Year", "type": "nominal", "title": "Financial Year"},
+      {"field": "Fuel_Type", "type": "nominal", "title": "Energy Stream"},
+      {"field": "Generation_GWh", "type": "quantitative", "title": "Output (GWh)", "format": ",.0f"}
+    ]
+  },
+  "config": {
+    "view": {"stroke": null}
+  }
+}

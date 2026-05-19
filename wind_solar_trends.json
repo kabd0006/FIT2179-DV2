@@ -1,0 +1,54 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 550,
+  "height": 280,
+  "title": {
+    "text": "Variable Renewable Growth vs Historical Benchmark Line",
+    "fontSize": 14,
+    "anchor": "start",
+    "color": "#0b2c24",
+    "subtitle": "Combined trajectory of wind and solar streams mapped against the long-term generation average"
+  },
+  "data": {
+    "url": "data/vic_energy_timeline.csv"
+  },
+  "transform": [
+    {
+      "filter": "datum.Fuel_Type === 'Wind' || datum.Fuel_Type === 'Large-scale solar PV' || datum.Fuel_Type === 'Small-scale solar PV'"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {"type": "area", "opacity": 0.35, "color": "#008080"},
+      "encoding": {
+        "x": {
+          "field": "Year",
+          "type": "nominal",
+          "axis": {"labelAngle": -45, "labelOverlap": "parity"}
+        },
+        "y": {
+          "aggregate": "sum",
+          "field": "Generation_GWh",
+          "type": "quantitative",
+          "title": "Combined Wind & Solar Production (GWh)"
+        }
+      }
+    },
+    {
+      "mark": {"type": "line", "color": "#008080", "strokeWidth": 3},
+      "encoding": {
+        "x": {"field": "Year", "type": "nominal"},
+        "y": {"aggregate": "sum", "field": "Generation_GWh", "type": "quantitative"}
+      }
+    },
+    {
+      "mark": {"type": "rule", "color": "#e53e3e", "strokeDash": [4, 4], "strokeWidth": 2},
+      "encoding": {
+        "y": {"aggregate": "mean", "field": "Generation_GWh", "type": "quantitative"}
+      }
+    }
+  ],
+  "config": {
+    "view": {"stroke": null}
+  }
+}

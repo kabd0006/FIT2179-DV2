@@ -12,6 +12,44 @@
   "data": {
     "url": "data/vic_energy_timeline.csv"
   },
+  "params": [
+    {
+      "name": "fuelSelect",
+      "select": {
+        "type": "point", 
+        "fields": ["Fuel_Type"]
+      },
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "Brown coal",
+          "Natural gas",
+          "Oil products",
+          "Wind",
+          "Hydro",
+          "Large-scale solar PV",
+          "Small-scale solar PV"
+        ],
+        "labels": [
+          "Show All Sources",
+          "Brown Coal Only",
+          "Natural Gas Only",
+          "Oil Products Only",
+          "Wind Power",
+          "Hydro Power",
+          "Grid Solar (Large)",
+          "Rooftop Solar (Small)"
+        ],
+        "name": "Select Stream: "
+      }
+    }
+  ],
+  "transform": [
+    {
+      "filter": {"param": "fuelSelect"}
+    }
+  ],
   "mark": {
     "type": "area",
     "opacity": 0.85

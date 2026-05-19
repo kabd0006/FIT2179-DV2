@@ -1,0 +1,64 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Parallel Tracking of State Energy Sources",
+    "fontSize": 14,
+    "anchor": "start",
+    "color": "#0b2c24",
+    "subtitle": "Side-by-side performance comparison of traditional baseload vs expanding renewables"
+  },
+  "data": {
+    "url": "data/vic_energy_timeline.csv"
+  },
+  "facet": {
+    "column": {
+      "field": "Category",
+      "type": "nominal",
+      "title": "Grid Generation Sector"
+    }
+  },
+  "spec": {
+    "width": 240,
+    "height": 220,
+    "mark": {
+      "type": "line",
+      "point": {"size": 30},
+      "strokeWidth": 2.5
+    },
+    "encoding": {
+      "x": {
+        "field": "Year",
+        "type": "nominal",
+        "axis": {
+          "title": "Financial Year",
+          "labelAngle": -45,
+          "labelOverlap": "parity"
+        }
+      },
+      "y": {
+        "aggregate": "sum",
+        "field": "Generation_GWh",
+        "type": "quantitative",
+        "title": "Net Output (GWh)"
+      },
+      "color": {
+        "field": "Fuel_Type",
+        "type": "nominal",
+        "scale": {
+          "domain": ["Brown coal", "Natural gas", "Oil products", "Wind", "Hydro", "Large-scale solar PV", "Small-scale solar PV"],
+          "range": ["#744210", "#dd6b20", "#718096", "#3182ce", "#2b6cb0", "#319795", "#d69e2e"]
+        },
+        "title": "Specific Asset"
+      },
+      "tooltip": [
+        {"field": "Year", "type": "nominal"},
+        {"field": "Fuel_Type", "type": "nominal", "title": "Type"},
+        {"field": "Generation_GWh", "type": "quantitative", "title": "Output (GWh)", "format": ",.0f"}
+      ]
+    }
+  },
+  "config": {
+    "view": {"stroke": null},
+    "axis": {"grid": true, "gridColor": "#edf2f7"}
+  }
+}
